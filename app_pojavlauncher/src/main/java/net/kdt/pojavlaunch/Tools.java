@@ -557,8 +557,10 @@ public final class Tools {
                 (view, windowInsets) -> {
                     if (fullscreen && !activity.isInMultiWindowMode()) {
                         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                        activity.getWindow().setDecorFitsSystemWindows(false);
                     } else {
                         windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
+                        activity.getWindow().setDecorFitsSystemWindows(true);
                     }
 
                     return ViewCompat.onApplyWindowInsets(view, windowInsets);

@@ -2,8 +2,10 @@ package org.lwjgl.glfw;
 
 import net.kdt.pojavlaunch.*;
 import android.content.*;
+import android.util.Log;
 import android.view.Choreographer;
 
+import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -102,6 +104,7 @@ public class CallbackBridge {
 
     // Called from JRE side
     @SuppressWarnings("unused")
+    @Keep
     public static @Nullable String accessAndroidClipboard(int type, String copy) {
         switch (type) {
             case CLIPBOARD_COPY:
@@ -164,6 +167,7 @@ public class CallbackBridge {
 
     //Called from JRE side
     @SuppressWarnings("unused")
+    @Keep
     private static void onGrabStateChanged(final boolean grabbing) {
         isGrabbing = grabbing;
         sChoreographer.postFrameCallbackDelayed((time) -> {
